@@ -1,0 +1,31 @@
+{
+  "name": "Node-Prod-Server-Boilerplate-with-Babel-setup",
+  "author": "Vivek Pandey",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rimraf build/ && babel ./ --out-dir build/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "npm install && npm run build && node ./build/bin/www",
+    "devstart": "nodemon --exec babel-node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "jade": "~1.11.0",
+    "mongodb": "^3.1.0-beta4",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5",
+    "socket.io": "^2.1.1",
+    "tunnel-ssh": "^4.1.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^1.17.5",
+    "rimraf": "^2.6.2"
+  }
+}
