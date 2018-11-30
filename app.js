@@ -1,18 +1,12 @@
-//Standard Express and Node Server imports
+// Standard Express and Node Server imports
+import createError from 'http-errors';
 import express from 'express';
 import path from 'path';
-import favicon from 'serve-favicon';
-import logger from 'morgan';
 import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
+import logger from 'morgan';
 
-//Babel imports
-import babelCore from 'babel-core/register';
-import babelPolyfill from 'babel-polyfill';
-
-//Router imports
+// Router imports
 import indexRouter from './routes/index';
-import usersRouter from './routes/users';
 
 var app = express();
 
@@ -20,22 +14,30 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// To Allow cross origin requests originating from selected origins
+app.use(function(req, res, next) {
+  var allowedOrigins = ['https://www.ngineerx.com', 'https://ngineerx.com', 'http://localhost:4200'];
+  var origin = req.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+       res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  next(createError(404));
 });
 
 // error handler

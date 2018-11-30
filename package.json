@@ -1,6 +1,6 @@
 {
-  "name": "Node-Prod-Server-Boilerplate-with-Babel-setup",
-  "author": "Vivek Pandey",
+  "name": "Node-Prod-Server-Boilerplate-with-Babel-Nodemon-Setup",
+  "author": "Vivek Pandey (EJ)",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,23 +9,25 @@
     "devstart": "nodemon --exec babel-node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "express": "~4.15.5",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "mongodb": "^3.1.0-beta4",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongodb": "^3.1.10",
     "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5",
-    "socket.io": "^2.1.1",
-    "tunnel-ssh": "^4.1.4"
+    "nodemailer": "^4.7.0",
+    "tunnel-ssh": "^4.1.4",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.17.5",
+    "nodemon": "^1.18.7",
     "rimraf": "^2.6.2"
   }
 }

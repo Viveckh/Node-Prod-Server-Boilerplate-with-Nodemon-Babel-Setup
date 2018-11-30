@@ -1,7 +1,4 @@
-# Follow the following steps to use this server boilerplate
-
-## Clone this repository
-`git clone https://github.com/Viveckh/Node-Prod-Server-Boilerplate-with-Babel-Setup.git`
+# Veniqa-Server
 
 ## Install the dependencies
 `npm install`

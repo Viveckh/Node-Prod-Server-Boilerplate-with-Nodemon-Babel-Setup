@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('quaati-chatserver:server');
+var debug = require('debug')('veniqa-server:server');
 var http = require('http');
 
 /**
